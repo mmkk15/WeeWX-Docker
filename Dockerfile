@@ -6,7 +6,7 @@ ENV PATH="$PATH:/home/weewx/bin"
 WORKDIR /home/weewx
 RUN apt-get update -y && apt-get install -y  --no-install-recommends \
 	python3-pil python3-cheetah python3-mysqldb python3-pip \
-	python3-configobj python3-usb python3-distutils python3-paho-mqtt \
+	python3-configobj python3-usb python3-paho-mqtt \
 	python3-ephem usbutils ftp curl wget busybox-syslogd procps gnupg \
 	python3-smbus i2c-tools rtl-sdr rtl-433 && \
 	apt-get autoremove && \
