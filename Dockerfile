@@ -1,7 +1,7 @@
 FROM nginx
 LABEL maintainer="martinwiest"
-ENV WVERSION="weewx-4.8.0" 
-ENV WSOURCE="http://weewx.com/downloads/$WVERSION.tar.gz"
+ENV WVERSION="weewx-5.2.0" 
+ENV WSOURCE="http://weewx.com/downloads/$WVERSION.tgz"
 ENV PATH="$PATH:/home/weewx/bin"
 WORKDIR /home/weewx
 RUN apt-get update -y && apt-get install -y  --no-install-recommends \
@@ -11,7 +11,7 @@ RUN apt-get update -y && apt-get install -y  --no-install-recommends \
 	python3-smbus i2c-tools rtl-sdr rtl-433 && \
 	apt-get autoremove && \
 	wget $WSOURCE && tar xzvf $WVERSION.tar.gz --strip-components=1 && \
-	rm -rf /var/lib/apt/lists/* $WVERSION.tar.gz && \
+	rm -rf /var/lib/apt/lists/* $WVERSION.ta && \
 	mkdir public_html
 RUN pip install RPi.bme280
 COPY src/*  /docker-entrypoint.d/
