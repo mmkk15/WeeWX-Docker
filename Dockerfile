@@ -2,7 +2,7 @@ FROM nginx
 LABEL maintainer="martinwiest"
 ENV WVERSION="weewx-4.8.0" 
 ENV WSOURCE="http://weewx.com/downloads/$WVERSION.tar.gz"
-ENV PATH "$PATH:/home/weewx/bin"
+ENV PATH="$PATH:/home/weewx/bin"
 WORKDIR /home/weewx
 RUN apt-get update -y && apt-get install -y  --no-install-recommends \
 	python3-pil python3-cheetah python3-mysqldb python3-pip \
