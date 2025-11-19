@@ -7,7 +7,7 @@ WORKDIR /home/weewx
 RUN apt-get update -y && \
 	apt-get install -y --no-install-recommends wget gpg && \
 	wget -qO - https://weewx.com/keys.html | gpg --dearmor --output /etc/apt/trusted.gpg.d/weewx.gpg && \
-	echo "deb [arch=all] https://weewx.com/apt/python3 buster main" | sudo tee /etc/apt/sources.list.d/weewx.list && \
+	echo "deb [arch=all] https://weewx.com/apt/python3 buster main" | tee /etc/apt/sources.list.d/weewx.list && \
 	apt-get update && \
 	apt-get -y install weewx && \
 	mkdir public_html
